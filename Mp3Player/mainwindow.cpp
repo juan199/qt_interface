@@ -65,7 +65,7 @@ void MainWindow::start_mp3()
     QStringList songs = directory.entryList(QStringList() << "*.mp3" << "*.MP3",QDir::Files);
 
     foreach(QString filename, songs) {
-        QTextStream(stdout) << directory.absoluteFilePath(filename) << endl;
+        //QTextStream(stdout) << directory.absoluteFilePath(filename) << endl;
         songs.replaceInStrings(filename,directory.absoluteFilePath(filename));
     }
 
