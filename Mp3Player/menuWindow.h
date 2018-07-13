@@ -1,17 +1,33 @@
 #ifndef MENUWINDOW_H
 #define MENUWINDOW_H
 
-#include <QWidget>
+#include "mainwindow.h"
+#include "radioWindow.h"
+#include <QMainWindow>
+#include <QPushButton>
 #include <qlabel.h>
 
-class QPushButton;
-class MenuWindow : public QWidget
+
+class MenuWindow : public QMainWindow
 {
- public:
+    Q_OBJECT
+
+public:
   explicit MenuWindow(QWidget *parent = 0);
+  virtual ~MenuWindow();
+
+//public slots:
+//    void openNewWindow();
+
+private slots:
+    void handleMp3Button();
+    void handleRadioButton();
 
 private:
- QPushButton *m_button;
+ MainWindow *mainWindow;
+ RadioWindow *radioWindow;
+ QPushButton *toMp3View_button;
+ QPushButton *toRadioView_button;
  QLabel *label;
 };
 

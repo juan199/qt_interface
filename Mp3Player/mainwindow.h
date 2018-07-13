@@ -32,12 +32,17 @@ public:
     ~MainWindow();
     QMediaPlayer::State state() const;
 
+public slots:
+    void on_actionStop_triggered();
+    void on_playbutton_clicked();
+
+signals:
+    void firstWindow();
+
 private slots:
     void start_mp3();
 
     void on_actionOpen_triggered();
-
-    void on_actionStop_triggered();
 
     void on_actionPause_triggered();
 
@@ -55,8 +60,6 @@ private slots:
 
     void on_actionPrevious_triggered();
 
-    void on_playbutton_clicked();
-
     void on_stopbutton_clicked();
 
     void on_nextbutton_clicked();
@@ -68,6 +71,8 @@ private slots:
     void on_mute_clicked();
 
     void aboutUs();
+
+    void return_to_menu();
 
     void on_actionShuffle_triggered();
 
@@ -83,6 +88,7 @@ private:
     QStringList *list;
     QMediaPlayer::State playerState;
     QLabel *time;
+    QPushButton *returnPushButton;
 
     //playlist *p;
 };

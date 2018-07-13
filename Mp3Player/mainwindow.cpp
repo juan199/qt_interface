@@ -24,7 +24,9 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(ui->actionActionAboutUs,SIGNAL(triggered(bool)),this,SLOT(aboutUs()));
     connect(ui->actionAboutQt,SIGNAL(triggered(bool)), qApp, SLOT(aboutQt()));
 
-
+    returnPushButton = new QPushButton("Main Menu", this);
+    //Connect button signal to appropriate slot
+     connect(returnPushButton, SIGNAL (released()),this, SLOT (return_to_menu()));
     //connect(ui->actionOpen,SIGNAL(triggered(bool)),this,SLOT(on_actionOpen_triggered()));
 
 
@@ -371,4 +373,12 @@ void MainWindow::on_actionMute_triggered()
         ui->mute->setIcon(QIcon(pix8));
         ui->status->setText("Unmuted...");
     }
+}
+
+
+void MainWindow:: return_to_menu()
+{
+    this->on_stopbutton_clicked();
+    this->close();
+    emit firstWindow();
 }
